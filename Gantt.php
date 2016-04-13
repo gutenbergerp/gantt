@@ -1,0 +1,89 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Asus
+ * Date: 06/04/2016
+ * Time: 11:50
+**/
+
+
+class Gantt {
+
+    public $res = array();
+    public $act = array();
+    public $days = array();
+    public $tpl = null;
+
+    /**
+     * @param $resources: associative array of resources
+     * Save the $resources array in the global variable $res
+     */
+    public function setResources($resources)
+    {
+
+        $this->res = $resources;
+        $this->tpl->assign("resources",$this->res);
+
+    }
+
+    /**
+     * @param $activities: array of activities
+     * Convert the date of each activity into an DateTime Object
+     * Save the $activities array in the global variable $act
+     */
+    public function setActivities($activities)
+    {
+		
+		foreach ($activities as &$a){
+
+			$a['start'] = new DateTime($a['start_date']);
+			$a['start']->format('Y-m-d H:i:s');
+
+			$a['end'] = new DateTime($a['end_date']);
+			$a['end']->format('Y-m-d H:i:s');
+			
+		}
+
+	    $this->act = $activities;
+        $this->tpl->assign("activities",$this->act);
+    }
+
+    /**
+     * @param $start: starting date for gantt chart
+     * @param $end: ending date for the gantt chart
+     * @param $cadence: cadence with which display the gantt chart
+     */
+    public function render($start, $end, $cadence)
+    {
+		
+		if (!($this->res) || !($this->act)){
+			
+			echo 'No Resources or Activities';
+			return false;
+			
+		}
+
+        $start    = new DateTime($start);
+        $end      = new DateTime($end);
+        $interval = new DateInterval($cadence);
+        $period   = new DatePeriod($start, $interval, $end);
+
+        foreach ($period as $dt) {
+			
+            array_push($this->days,$dt->format("Y-m-d"));
+			
+        }
+
+        $this->tpl->assign("days",$this->days);
+
+    }
+
+    public function __construct(smarty $tpl)
+    {
+
+        $this->tpl = $tpl;
+
+    }
+
+
+}
