@@ -5,7 +5,7 @@ include ('activities.php');
 include('resources.php');
 require ("C:/xampp/smarty/libs/Smarty.class.php");
 
-
+//Istance
 $tpl = new smarty();
 
 $gantt = new Gantt($tpl);
