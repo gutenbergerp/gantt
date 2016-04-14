@@ -15,8 +15,9 @@ class Gantt {
     public $tpl = null;
 
     /**
-     * @param $resources: associative array of resources
-     * Save the $resources array in the global variable $res
+     * @param $resources: associative array with two fields
+     *                    id = unique key of the resource
+     *                    label = Description of the resource
      */
     public function setResources($resources)
     {
@@ -27,9 +28,13 @@ class Gantt {
     }
 
     /**
-     * @param $activities: array of activities
-     * Convert the date of each activity into an DateTime Object
-     * Save the $activities array in the global variable $act
+     * @param $activities: associative array with six fields
+     *                     id_resource = id of the resource to which th activity is connected
+     *                     start_date = starting date and hour of the activity
+     *                     end_date = ending date and hour of the activity
+     *                     description = description of the activity
+     *                     url = url for an deepening page
+     *                     json = json string with related activity information
      */
     public function setActivities($activities)
     {
@@ -48,8 +53,8 @@ class Gantt {
         $this->tpl->assign("activities",$this->act);
     }
 
-    /**
-     * @param $start: starting date for gantt chart
+    /*
+     * @param $start: starting date for the gantt chart
      * @param $end: ending date for the gantt chart
      * @param $cadence: cadence with which display the gantt chart
      */

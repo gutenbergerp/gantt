@@ -14,4 +14,4 @@ $gantt->setActivities($activities);
 $gantt->render('2016-04-01','2016/04/11','P1D');
 
 
-$tpl->display("/templates/gantt.tpl");
+$tpl->display("C:/xampp/htdocs/files/gantt/templates/gantt.tpl");
