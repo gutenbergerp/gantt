@@ -74,11 +74,10 @@ class Gantt {
         $period   = new DatePeriod($start, $interval, $end);
 
         foreach ($period as $dt) {
-			
-            array_push($this->days,$dt->format("Y-m-d"));
+
+            array_push($this->days,$dt->format("Y-m-d H:i:s"));
 			
         }
-
         $this->tpl->assign("days",$this->days);
 
     }
