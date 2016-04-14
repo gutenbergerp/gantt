@@ -15,46 +15,49 @@
         }
 
     </script>
+
+    <style>
+        li.a {
+            list-style-type: none;
+        }
+        td.b {
+            background-color: darkorange;
+        }
+    </style>
+
 {/literal}
 
 
-<br />
 
-    <!--Table-->
-    <table border="1">
+<br />
+<!--Table-->
+<table border="1">
+    <tr>
+        <td width="100px" align="center"><b>Gantt</b></td>
+        {foreach $days as $d}
+            <td width="100px" align="center">{$d}</td>
+        {/foreach}
+    </tr>
+
+
+    {foreach $resources as $r}
         <tr>
-            <td width="100px" align="center"><b>Gantt</b></td>
+            <td align = "center">{$r.label}</td>
             {foreach $days as $d}
-                <td width="100px" align="center">{$d}</td>
+                <td
+                        {foreach $activities as $a}
+                            {if $a.id_resource == $r.id}
+
+                                {if ($d >= $a.start_date) && ($d <= $a.end_date)}
+                                        <li class ="a" onclick="isclick({$a|json_encode|escape})">{$a.description}</li>
+                                {/if}
+                            {/if}
+                        {/foreach}
+                </td>
             {/foreach}
         </tr>
-
-        {foreach $activities as $a}
-
-            <tr>
-
-                {foreach $resources as $r}
-
-                    {if $r.id == $a.id_resource}
-
-                        <td width="100px" align="center">{$r.label}</td>
-
-                    {/if}
-
-                {/foreach}
+    {/foreach}
 
 
-                {foreach $days as $d}
-                    {if ($d >= $a.start_date) && ($d <= $a.end_date)}
 
-                        <td align = "center" bgcolor="#ff8c00" onclick="isclick({$a|json_encode|escape})">{$a.description}</td>
-
-                    {else}
-                        <td></td>
-                    {/if}
-                {/foreach}
-
-            </tr>
-	
-        {/foreach}
-    </table>
+</table>
