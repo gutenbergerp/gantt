@@ -3,9 +3,9 @@
 include ('Gantt.php');
 include ('activities.php');
 include('resources.php');
-require ("C:/xampp/smarty/libs/Smarty.class.php");
+require 'vendor/autoload.php';
 
-$tpl = new smarty();
+$tpl = new Smarty();
 
 $gantt = new Gantt($tpl);
 $gantt->setResources($resources);

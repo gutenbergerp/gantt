@@ -9,10 +9,10 @@
 include('Gantt.php');
 include ('DailyActivities.php');
 include('DailyResources.php');
-require ("C:/xampp/smarty/libs/Smarty.class.php");
 
-//Istance
-$tpl = new smarty();
+require_once ('../vendor/autoload.php');
+
+$tpl = new Smarty();
 
 $gantt = new Gantt($tpl);
 $gantt->setResources($resources);
@@ -21,4 +21,4 @@ $gantt->setActivities($activities);
 $gantt->render('2016-04-01','2016-04-15','P1D');
 
 
-$tpl->display("C:/xampp/htdocs/files/gantt/templates/gantt.tpl");
+$tpl->display("../templates/gantt.tpl");
