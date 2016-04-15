@@ -1,16 +1,18 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Asus
  * Date: 14/04/2016
  * Time: 16:00
  */
-include ('Gantt.php');
+
+
+require ('Gantt.php');
 include ('HourlyActivities.php');
 include('HourlyResources.php');
 require ("C:/xampp/smarty/libs/Smarty.class.php");
 
-//Istance
 $tpl = new smarty();
 
 $gantt = new Gantt($tpl);

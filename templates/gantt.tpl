@@ -28,7 +28,6 @@
 {/literal}
 
 
-
 <br />
 <!--Table-->
 <table border="1">
@@ -44,10 +43,9 @@
         <tr>
             <td align = "center">{$r.label}</td>
             {foreach $days as $d}
-                <td
+                <td align = "center"
                         {foreach $activities as $a}
                             {if $a.id_resource == $r.id}
-
                                 {if ($d >= $a.start_date) && ($d <= $a.end_date)}
                                         <li class ="a" onclick="isclick({$a|json_encode|escape})">{$a.description}</li>
                                 {/if}

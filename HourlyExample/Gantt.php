@@ -6,7 +6,6 @@
  * Time: 11:50
 **/
 
-
 class Gantt {
 
     public $res = array();

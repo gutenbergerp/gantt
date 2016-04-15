@@ -58,7 +58,7 @@ class Gantt {
      * @param $end: ending date for the gantt chart
      * @param $cadence: cadence with which display the gantt chart
      */
-    public function render($start, $end, $cadence)
+    public function render($start, $end, $interval)
     {
 		
 		if (!($this->res) || !($this->act)){
@@ -70,7 +70,7 @@ class Gantt {
 
         $start    = new DateTime($start);
         $end      = new DateTime($end);
-        $interval = new DateInterval($cadence);
+        $interval = new DateInterval($interval);
         $period   = new DatePeriod($start, $interval, $end);
 
         foreach ($period as $dt) {
