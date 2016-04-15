@@ -3,7 +3,7 @@
     <table  cellpadding="2" cellspacing="0">
 
         <tr class='header'>
-            <td colspan="2"><strong>INSERT DATE RANGE</strong></td>
+            <td colspan = "5"><strong>INSERT DATE RANGE (ISO STANDARD AAAA-MM-DD)</strong></td>
         </tr>
 
         <tr>
