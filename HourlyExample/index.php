@@ -8,7 +8,7 @@
  */
 
 
-require ('Gantt.php');
+require ('../Gantt.php');
 include ('HourlyActivities.php');
 include('HourlyResources.php');
 

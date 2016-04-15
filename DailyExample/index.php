@@ -6,7 +6,7 @@
  * Time: 15:41
  */
 
-include('Gantt.php');
+include('../Gantt.php');
 include ('DailyActivities.php');
 include('DailyResources.php');
 
