@@ -7,7 +7,6 @@
  * Time: 16:00
  */
 
-
 require ('../Gantt.php');
 include ('HourlyActivities.php');
 include('HourlyResources.php');
