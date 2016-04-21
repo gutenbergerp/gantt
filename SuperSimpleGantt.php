@@ -7,7 +7,8 @@
 **/
 
 
-class Gantt {
+class SuperSimpleGantt
+{
 
     public $res = array();
     public $act = array();
@@ -41,10 +42,10 @@ class Gantt {
 		
 		foreach ($activities as &$a){
 
-			$a['start'] = new DateTime($a['start_date']);
+			$a['start'] = new DateTime($a['Data_Posizione']);
 			$a['start']->format('Y-m-d H:i:s');
 
-			$a['end'] = new DateTime($a['end_date']);
+			$a['end'] = new DateTime($a['Fine_Prevista']);
 			$a['end']->format('Y-m-d H:i:s');
 			
 		}
@@ -70,14 +71,20 @@ class Gantt {
 
         $start    = new DateTime($start);
         $end      = new DateTime($end);
-        $interval = new DateInterval($interval);
-        $period   = new DatePeriod($start, $interval, $end);
-
+        $intervals = new DateInterval($interval);
+        $period   = new DatePeriod($start, $intervals, $end);
         foreach ($period as $dt) {
+            if ($interval[2] == 'D'){
 
-            array_push($this->days,$dt->format("Y-m-d H:i:s"));
+                array_push($this->days,$dt->format("Y-m-d"));
+
+            } else {
+
+                array_push($this->days, $dt->format("Y-m-d H:i:s"));
+            }
 			
         }
+        $this->tpl->assign("interval", $interval);
         $this->tpl->assign("days",$this->days);
 
     }
