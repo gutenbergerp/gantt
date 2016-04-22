@@ -1,5 +1,6 @@
 <?php
 
+namespace SuperSimpleGantt;
 
 class SuperSimpleGantt
 {
