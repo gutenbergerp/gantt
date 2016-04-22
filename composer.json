@@ -1,5 +1,5 @@
 {
-  "name": "gantt/supersimplegantt",
+  "name": "gutenbergerp/gantt",
   "description": "Simple class for gantt chart",
   "minimum-stability": "dev",
   "require": {
