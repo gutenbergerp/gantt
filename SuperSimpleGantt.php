@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Asus
- * Date: 06/04/2016
- * Time: 11:50
-**/
-
 
 class SuperSimpleGantt
 {
@@ -42,11 +35,11 @@ class SuperSimpleGantt
 		
 		foreach ($activities as &$a){
 
-			$a['start'] = new DateTime($a['Data_Posizione']);
+			$a['start'] = new DateTime($a['Data_Posizione']); //Replace 'Data_Posizione' with your start date
 			$a['start']->format('Y-m-d H:i:s');
 
-			$a['end'] = new DateTime($a['Fine_Prevista']);
-			$a['end']->format('Y-m-d H:i:s');
+			$a['end'] = new DateTime($a['Fine_Prevista']);    //Replace 'Fine Prevista' with your end date
+            $a['end']->format('Y-m-d H:i:s');
 			
 		}
 
@@ -59,6 +52,7 @@ class SuperSimpleGantt
      * @param $end: ending date for the gantt chart
      * @param $cadence: cadence with which display the gantt chart
      */
+
     public function render($start, $end, $interval)
     {
 		
@@ -74,7 +68,7 @@ class SuperSimpleGantt
         $intervals = new DateInterval($interval);
         $period   = new DatePeriod($start, $intervals, $end);
         foreach ($period as $dt) {
-            if ($interval[2] == 'D'){
+            if (substr($interval,-1) == 'D'){
 
                 array_push($this->days,$dt->format("Y-m-d"));
 
