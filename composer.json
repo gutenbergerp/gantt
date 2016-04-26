@@ -6,8 +6,8 @@
     "smarty/smarty": "~3.1"
   },
   "autoload": {
-      "psr-0": {
-          "gutenbergerp\\" : ""
+      "psr-4": {
+          "SSG\\" : "gantt/"
       }
   }
 }
