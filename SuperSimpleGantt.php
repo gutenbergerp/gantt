@@ -1,5 +1,5 @@
 <?php
-namespace SSG;
+
 
 class SuperSimpleGantt
 {
