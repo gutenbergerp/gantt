@@ -7,7 +7,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Gantt\\SSG" : "src"
+      "SuperSimpleGantt" : "src/"
     }
   }
 }
