@@ -7,7 +7,7 @@
   },
   "autoload": {
     "psr-4": {
-      "SuperSimpleGantt" : "src/"
+      "files" : ["src/SuperSimpleGantt.php"]
     }
   }
 }
