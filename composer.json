@@ -6,8 +6,6 @@
     "smarty/smarty": "~3.1"
   },
   "autoload": {
-    "psr-4": {
       "files" : ["src/SuperSimpleGantt.php"]
-    }
   }
 }
