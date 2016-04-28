@@ -6,6 +6,8 @@
     "smarty/smarty": "~3.1"
   },
   "autoload": {
-    "Gantt\\SSG" : "src"
+    "psr-4": {
+      "Gantt\\SSG" : "src"
+    }
   }
 }
