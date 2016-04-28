@@ -1,6 +1,5 @@
 <?php
 
-namespace Gantt\SSG;
 
 class SuperSimpleGantt
 {
